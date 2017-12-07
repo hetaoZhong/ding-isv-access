@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.isv.access.api.model.ISVSSOTokenVO;
+import com.dingtalk.isv.access.api.model.corp.CorpTokenVO;
 import com.dingtalk.isv.access.api.model.suite.UnActiveCorpVO;
 import com.dingtalk.isv.access.common.code.ServiceResultCode;
 import com.dingtalk.isv.access.common.log.format.LogFormatter;
@@ -129,6 +130,39 @@ public class ISVRequestHelper {
             String errLog = LogFormatter.getKVLogData(LogFormatter.LogEvent.END,
                     LogFormatter.KeyValue.getNew("ssoCorpId", ssoCorpId),
                     LogFormatter.KeyValue.getNew("ssoCorpSecret", ssoCorpSecret)
+            );
+            bizLogger.error(errLog, e);
+            mainLogger.error(errLog, e);
+            return ServiceResult.failure(ServiceResultCode.SYS_ERROR.getErrCode(), ServiceResultCode.SYS_ERROR.getErrCode());
+        }
+    }
+
+
+    /**
+     * ISV以企业身份获取自己企业的CorpToken
+     * @param corpId        ISV企业的CorpId
+     * @param corpSecret    ISV企业的CorpSecret
+     */
+    public ServiceResult<CorpTokenVO> getCorpToken(String corpId, String corpSecret) {
+        try {
+            String url = getOapiDomain() + "/gettoken?corpid=" + corpId+"&corpsecret="+corpSecret;
+            String sr = httpRequestHelper.doHttpGet(url);
+            JSONObject jsonObject = JSON.parseObject(sr);
+            Long errCode = jsonObject.getLong("errcode");
+            if (Long.valueOf(0).equals(errCode)) {
+                String accessToken = jsonObject.getString("access_token");
+                CorpTokenVO corpTokenVO = new CorpTokenVO();
+                corpTokenVO.setCorpId(corpId);
+                corpTokenVO.setCorpToken(accessToken);
+                corpTokenVO.setExpiredTime(new Date(System.currentTimeMillis()+jsonObject.getLong("expires_in")*1000));
+                corpTokenVO.setSuiteKey(null);
+                return ServiceResult.success(corpTokenVO);
+            }
+            return ServiceResult.failure(ServiceResultCode.SYS_ERROR.getErrCode(), ServiceResultCode.SYS_ERROR.getErrCode());
+        } catch (Exception e) {
+            String errLog = LogFormatter.getKVLogData(LogFormatter.LogEvent.END,
+                    LogFormatter.KeyValue.getNew("corpId", corpId),
+                    LogFormatter.KeyValue.getNew("corpSecret", corpSecret)
             );
             bizLogger.error(errLog, e);
             mainLogger.error(errLog, e);

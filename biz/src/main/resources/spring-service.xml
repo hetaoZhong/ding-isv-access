@@ -37,6 +37,16 @@
         <property name="httpRequestHelper" ref="httpRequestHelper"/>
     </bean>
 
+    <bean id="corpDeptOapiRequestHelper" class="com.dingtalk.isv.access.biz.dingutil.CorpDeptOapiRequestHelper">
+        <property name="oapiDomain" value="${oapi.environment}" />
+    </bean>
+
+    <bean id="corpChatOapiRequestHelper" class="com.dingtalk.isv.access.biz.dingutil.CorpChatOapiRequestHelper">
+        <property name="oapiDomain" value="${oapi.environment}" />
+    </bean>
+
+
+
     <bean id="suiteManageService" class="com.dingtalk.isv.access.biz.service.SuiteManageServiceImpl"/>
     <bean id="corpSuiteAuthService" class="com.dingtalk.isv.access.biz.service.CorpSuiteAuthServiceImpl"/>
     <bean id="corpManageService" class="com.dingtalk.isv.access.biz.service.CorpManageServiceImpl"/>

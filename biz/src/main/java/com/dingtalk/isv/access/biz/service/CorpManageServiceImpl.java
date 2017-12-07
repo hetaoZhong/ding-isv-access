@@ -164,6 +164,8 @@ public class CorpManageServiceImpl implements CorpManageService {
             bizLogger.error(errLog, e);
             mainLogger.error(errLog, e);
             return ServiceResult.failure(ServiceResultCode.SYS_ERROR.getErrCode(), ServiceResultCode.SYS_ERROR.getErrMsg());
+        }finally {
+            isvBizLockService.removeISVBizLock(lockKey);
         }
     }
 
