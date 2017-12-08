@@ -1,7 +1,7 @@
 package com.dingtalk.isv.access.biz.model;
 
 
-import com.dingtalk.isv.access.api.model.corp.EmpVO;
+import com.dingtalk.isv.access.api.model.EmpVO;
 
 import java.util.List;
 

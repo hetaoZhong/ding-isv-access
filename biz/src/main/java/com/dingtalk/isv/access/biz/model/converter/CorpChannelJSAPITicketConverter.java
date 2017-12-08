@@ -1,6 +1,6 @@
 package com.dingtalk.isv.access.biz.model.converter;
 
-import com.dingtalk.isv.access.api.model.corp.CorpChannelJSAPITicketVO;
+import com.dingtalk.isv.access.api.model.CorpChannelJSAPITicketVO;
 import com.dingtalk.isv.access.biz.model.CorpChannelJSAPITicketDO;
 
 /**

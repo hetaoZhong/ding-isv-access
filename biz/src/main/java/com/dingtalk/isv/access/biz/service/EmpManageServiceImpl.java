@@ -1,11 +1,11 @@
 package com.dingtalk.isv.access.biz.service;
 
 import com.alibaba.fastjson.JSON;
-import com.dingtalk.isv.access.api.model.corp.CorpTokenVO;
-import com.dingtalk.isv.access.api.model.corp.LoginUserVO;
-import com.dingtalk.isv.access.api.model.corp.EmpVO;
-import com.dingtalk.isv.access.api.service.corp.CorpManageService;
-import com.dingtalk.isv.access.api.service.corp.EmpManageService;
+import com.dingtalk.isv.access.api.model.CorpTokenVO;
+import com.dingtalk.isv.access.api.model.LoginUserVO;
+import com.dingtalk.isv.access.api.model.EmpVO;
+import com.dingtalk.isv.access.api.service.CorpManageService;
+import com.dingtalk.isv.access.api.service.EmpManageService;
 import com.dingtalk.isv.access.biz.model.converter.StaffConverter;
 import com.dingtalk.isv.access.biz.dingutil.CorpOapiRequestHelper;
 import com.dingtalk.isv.access.common.code.ServiceResultCode;

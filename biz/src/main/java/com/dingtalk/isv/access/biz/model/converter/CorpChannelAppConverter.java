@@ -1,6 +1,6 @@
 package com.dingtalk.isv.access.biz.model.converter;
 
-import com.dingtalk.isv.access.api.model.corp.callback.CorpChannelAppVO;
+import com.dingtalk.isv.access.api.model.CorpChannelAppVO;
 import com.dingtalk.isv.access.biz.model.CorpChannelAppDO;
 
 /**

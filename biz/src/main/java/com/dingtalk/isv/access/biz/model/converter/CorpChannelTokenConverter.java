@@ -1,7 +1,7 @@
 package com.dingtalk.isv.access.biz.model.converter;
 
 
-import com.dingtalk.isv.access.api.model.corp.CorpChannelTokenVO;
+import com.dingtalk.isv.access.api.model.CorpChannelTokenVO;
 import com.dingtalk.isv.access.biz.model.CorpChannelTokenDO;
 
 /**

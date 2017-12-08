@@ -3,8 +3,7 @@ package com.dingtalk.isv.access.biz.dingutil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.dingtalk.isv.access.api.model.corp.CorpJSAPITicketVO;
-import com.dingtalk.isv.access.api.model.corp.FollowerSimpleVO;
+import com.dingtalk.isv.access.api.model.FollowerSimpleVO;
 import com.dingtalk.isv.access.common.code.ServiceResultCode;
 import com.dingtalk.isv.access.common.log.format.LogFormatter;
 import com.dingtalk.isv.access.common.model.ServiceResult;
@@ -13,8 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**

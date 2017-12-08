@@ -1,8 +1,8 @@
 package com.dingtalk.isv.access.biz.service.corp;
 
 import com.alibaba.fastjson.JSON;
-import com.dingtalk.isv.access.api.model.corp.FollowerSimpleVO;
-import com.dingtalk.isv.access.api.service.corp.ChannelManageService;
+import com.dingtalk.isv.access.api.model.FollowerSimpleVO;
+import com.dingtalk.isv.access.api.service.ChannelManageService;
 import com.dingtalk.isv.access.biz.base.BaseTestCase;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 import org.junit.Test;

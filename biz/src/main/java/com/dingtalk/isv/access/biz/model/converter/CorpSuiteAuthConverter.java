@@ -1,6 +1,6 @@
 package com.dingtalk.isv.access.biz.model.converter;
 
-import com.dingtalk.isv.access.api.model.suite.CorpSuiteAuthVO;
+import com.dingtalk.isv.access.api.model.CorpSuiteAuthVO;
 import com.dingtalk.isv.access.biz.model.CorpSuiteAuthDO;
 
 /**

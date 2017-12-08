@@ -1,11 +1,14 @@
 package com.dingtalk.isv.access.biz.dingutil;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.dingtalk.isv.access.api.model.CorpChatVO;
 import com.dingtalk.isv.access.common.code.ServiceResultCode;
 import com.dingtalk.isv.access.common.log.format.LogFormatter;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 import com.dingtalk.isv.access.common.util.HttpRequestHelper;
+import com.dingtalk.open.client.api.model.corp.MessageBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +55,6 @@ public class CorpChatOapiRequestHelper {
             parmMap.put("useridlist", userIdList);
             parmMap.put("showHistoryType", showHistoryType);
 
-
             String sr = httpRequestHelper.httpPostJson(url, JSON.toJSONString(parmMap));
             JSONObject jsonObject = JSON.parseObject(sr);
             Long errCode = jsonObject.getLong("errcode");
@@ -74,18 +76,59 @@ public class CorpChatOapiRequestHelper {
     }
 
     /**
-     * 获取一个群的信息
+     * 获取一个企业群的基本信息
      * @param suiteKey      套件SuiteKey
      * @param corpId        授权企业的CorpId
      * @param accessToken   授权企业的AccessToken
      * @param chatId        群ID
-     * https://pre-oapi.dingtalk.com/chat/get?access_token=8ad4e5b5aedb3697ae9caf2c79d7585d&chatid=chat217caa817b30e581b412f141583307e6
-     * {"errcode":0,"errmsg":"ok","chat_info":{"owner":"lifeng.zlf","chatid":"chat217caa817b30e581b412f141583307e6","name":"群你妹","useridlist":["lifeng.zlf","043425659249","06654942081038711"]}}
      */
-    public ServiceResult<String> getChat(String suiteKey, String corpId,String accessToken,String chatId) {
+    public ServiceResult<CorpChatVO> getChat(String suiteKey, String corpId, String accessToken, String chatId) {
         try {
             String url = oapiDomain + "/chat/get?access_token=" + accessToken+"&chatid="+chatId;
             String sr = httpRequestHelper.doHttpGet(url);
+            JSONObject jsonObject = JSON.parseObject(sr);
+            Long errCode = jsonObject.getLong("errcode");
+            if (Long.valueOf(0).equals(errCode)) {
+                CorpChatVO corpChatVO = new CorpChatVO();
+                JSONObject chatObj = jsonObject.getJSONObject("chat_info");
+                corpChatVO.setChatId(chatId);
+                corpChatVO.setChatName(chatObj.getString("name"));
+                corpChatVO.setOwnerUserId(chatObj.getString("owner"));
+                corpChatVO.setUserIdlist(JSONArray.parseArray(chatObj.getJSONArray("useridlist").toJSONString(),String.class));
+                return ServiceResult.success(corpChatVO);
+            }
+            return ServiceResult.failure(ServiceResultCode.SYS_ERROR.getErrCode(), ServiceResultCode.SYS_ERROR.getErrCode());
+        } catch (Exception e) {
+            String errLog = LogFormatter.getKVLogData(LogFormatter.LogEvent.END,
+                    LogFormatter.KeyValue.getNew("suiteKey", suiteKey),
+                    LogFormatter.KeyValue.getNew("corpId", corpId),
+                    LogFormatter.KeyValue.getNew("accessToken", accessToken)
+            );
+            bizLogger.error(errLog, e);
+            mainLogger.error(errLog, e);
+            return ServiceResult.failure(ServiceResultCode.SYS_ERROR.getErrCode(), ServiceResultCode.SYS_ERROR.getErrCode());
+        }
+    }
+
+
+    /**
+     * 向企业群中发送消息
+     * @param suiteKey      套件Key
+     * @param corpId        授权企业CorpId
+     * @param accessToken   授权企业的AccessToken
+     * @param chatId        群ID
+     * @param chatType      消息类型
+     * @param messageBody   消息结构体
+     * @return
+     */
+    public ServiceResult<Void> sendChatMsg(String suiteKey, String corpId, String accessToken, String chatId,String chatType,MessageBody.OABody messageBody) {
+        try {
+            String url = oapiDomain + "/chat/send?access_token=" + accessToken;
+            Map<String, Object> parmMap = new HashMap<String, Object>();
+            parmMap.put("chatid", chatId);
+            parmMap.put("msgtype", chatType);
+            parmMap.put(chatType, messageBody);
+            String sr = httpRequestHelper.httpPostJson(url, JSON.toJSONString(parmMap));
             JSONObject jsonObject = JSON.parseObject(sr);
             Long errCode = jsonObject.getLong("errcode");
             if (Long.valueOf(0).equals(errCode)) {

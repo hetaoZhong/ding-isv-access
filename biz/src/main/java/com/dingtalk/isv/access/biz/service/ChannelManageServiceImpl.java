@@ -1,9 +1,9 @@
 package com.dingtalk.isv.access.biz.service;
 
-import com.dingtalk.isv.access.api.model.corp.CorpChannelTokenVO;
-import com.dingtalk.isv.access.api.model.corp.FollowerSimpleVO;
-import com.dingtalk.isv.access.api.service.corp.ChannelManageService;
-import com.dingtalk.isv.access.api.service.corp.CorpManageService;
+import com.dingtalk.isv.access.api.model.CorpChannelTokenVO;
+import com.dingtalk.isv.access.api.model.FollowerSimpleVO;
+import com.dingtalk.isv.access.api.service.ChannelManageService;
+import com.dingtalk.isv.access.api.service.CorpManageService;
 import com.dingtalk.isv.access.biz.dingutil.ChannelOapiRequestHelper;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 import org.slf4j.Logger;

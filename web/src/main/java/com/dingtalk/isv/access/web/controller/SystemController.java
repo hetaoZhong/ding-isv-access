@@ -1,9 +1,9 @@
 package com.dingtalk.isv.access.web.controller;
 
-import com.dingtalk.isv.access.api.model.corp.CorpJSAPITicketVO;
-import com.dingtalk.isv.access.api.model.corp.CorpTokenVO;
-import com.dingtalk.isv.access.api.model.suite.SuiteTokenVO;
-import com.dingtalk.isv.access.api.service.corp.CorpManageService;
+import com.dingtalk.isv.access.api.model.CorpJSAPITicketVO;
+import com.dingtalk.isv.access.api.model.CorpTokenVO;
+import com.dingtalk.isv.access.api.model.SuiteTokenVO;
+import com.dingtalk.isv.access.api.service.CorpManageService;
 import com.dingtalk.isv.access.api.service.suite.CorpSuiteAuthService;
 import com.dingtalk.isv.access.api.service.suite.SuiteManageService;
 import com.dingtalk.isv.access.biz.dao.CorpJSAPITicketDao;

@@ -1,9 +1,7 @@
 package com.dingtalk.isv.access.api.service.suite;
 
-import com.dingtalk.isv.access.api.model.corp.CorpAppVO;
-import com.dingtalk.isv.access.api.model.corp.callback.CorpChannelAppVO;
-import com.dingtalk.isv.access.api.model.suite.CorpSuiteAuthVO;
-import com.dingtalk.isv.access.api.model.suite.CorpSuiteCallBackVO;
+import com.dingtalk.isv.access.api.model.CorpAppVO;
+import com.dingtalk.isv.access.api.model.CorpSuiteAuthVO;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 
 import java.util.List;

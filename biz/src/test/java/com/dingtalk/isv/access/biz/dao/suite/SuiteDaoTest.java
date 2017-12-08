@@ -1,7 +1,7 @@
 package com.dingtalk.isv.access.biz.dao.suite;
 
 import com.alibaba.fastjson.JSON;
-import com.dingtalk.isv.access.api.model.suite.SuiteVO;
+import com.dingtalk.isv.access.api.model.SuiteVO;
 import com.dingtalk.isv.access.biz.model.SuiteDO;
 import com.dingtalk.isv.access.biz.base.BaseTestCase;
 import com.dingtalk.isv.access.biz.dao.SuiteDao;

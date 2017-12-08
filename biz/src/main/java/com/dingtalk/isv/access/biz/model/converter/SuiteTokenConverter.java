@@ -1,6 +1,6 @@
 package com.dingtalk.isv.access.biz.model.converter;
 
-import com.dingtalk.isv.access.api.model.suite.SuiteTokenVO;
+import com.dingtalk.isv.access.api.model.SuiteTokenVO;
 import com.dingtalk.isv.access.biz.model.SuiteTokenDO;
 
 /**

@@ -1,7 +1,7 @@
 package com.dingtalk.isv.access.biz.scheduler;
 
-import com.dingtalk.isv.access.api.model.suite.SuiteTokenVO;
-import com.dingtalk.isv.access.api.model.suite.UnActiveCorpVO;
+import com.dingtalk.isv.access.api.model.SuiteTokenVO;
+import com.dingtalk.isv.access.api.model.UnActiveCorpVO;
 import com.dingtalk.isv.access.api.service.suite.SuiteManageService;
 import com.dingtalk.isv.access.biz.dingutil.ISVRequestHelper;
 import com.dingtalk.isv.access.common.log.format.LogFormatter;

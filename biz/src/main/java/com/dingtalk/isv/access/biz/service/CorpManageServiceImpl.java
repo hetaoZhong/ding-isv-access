@@ -1,13 +1,12 @@
 package com.dingtalk.isv.access.biz.service;
 
 import com.alibaba.fastjson.JSON;
-import com.dingtalk.isv.access.api.model.ISVBizLockVO;
-import com.dingtalk.isv.access.api.model.corp.*;
-import com.dingtalk.isv.access.api.model.corp.callback.CorpChannelAppVO;
-import com.dingtalk.isv.access.api.model.suite.CorpSuiteAuthVO;
-import com.dingtalk.isv.access.api.model.suite.SuiteTokenVO;
+import com.dingtalk.isv.access.api.model.*;
+import com.dingtalk.isv.access.api.model.CorpChannelAppVO;
+import com.dingtalk.isv.access.api.model.CorpSuiteAuthVO;
+import com.dingtalk.isv.access.api.model.SuiteTokenVO;
 import com.dingtalk.isv.access.api.service.ISVBizLockService;
-import com.dingtalk.isv.access.api.service.corp.CorpManageService;
+import com.dingtalk.isv.access.api.service.CorpManageService;
 import com.dingtalk.isv.access.api.service.suite.CorpSuiteAuthService;
 import com.dingtalk.isv.access.api.service.suite.SuiteManageService;
 import com.dingtalk.isv.access.biz.dao.*;

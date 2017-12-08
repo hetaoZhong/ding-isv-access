@@ -1,6 +1,6 @@
 package com.dingtalk.isv.access.biz.model.converter;
 
-import com.dingtalk.isv.access.api.model.corp.CorpVO;
+import com.dingtalk.isv.access.api.model.CorpVO;
 import com.dingtalk.isv.access.biz.model.CorpDO;
 
 /**

@@ -1,11 +1,11 @@
 package com.dingtalk.isv.access.biz.service.corp;
 
 import com.alibaba.fastjson.JSON;
-import com.dingtalk.isv.access.api.model.corp.CorpChannelJSAPITicketVO;
-import com.dingtalk.isv.access.api.model.corp.CorpChannelTokenVO;
-import com.dingtalk.isv.access.api.model.corp.CorpJSAPITicketVO;
-import com.dingtalk.isv.access.api.model.corp.CorpTokenVO;
-import com.dingtalk.isv.access.api.service.corp.CorpManageService;
+import com.dingtalk.isv.access.api.model.CorpChannelJSAPITicketVO;
+import com.dingtalk.isv.access.api.model.CorpChannelTokenVO;
+import com.dingtalk.isv.access.api.model.CorpJSAPITicketVO;
+import com.dingtalk.isv.access.api.model.CorpTokenVO;
+import com.dingtalk.isv.access.api.service.CorpManageService;
 import com.dingtalk.isv.access.biz.base.BaseTestCase;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 import org.junit.Test;

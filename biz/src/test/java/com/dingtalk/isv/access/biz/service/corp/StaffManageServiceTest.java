@@ -1,9 +1,9 @@
 package com.dingtalk.isv.access.biz.service.corp;
 
 import com.alibaba.fastjson.JSON;
-import com.dingtalk.isv.access.api.model.corp.LoginUserVO;
-import com.dingtalk.isv.access.api.model.corp.EmpVO;
-import com.dingtalk.isv.access.api.service.corp.EmpManageService;
+import com.dingtalk.isv.access.api.model.LoginUserVO;
+import com.dingtalk.isv.access.api.model.EmpVO;
+import com.dingtalk.isv.access.api.service.EmpManageService;
 import com.dingtalk.isv.access.biz.base.BaseTestCase;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 import org.junit.Test;

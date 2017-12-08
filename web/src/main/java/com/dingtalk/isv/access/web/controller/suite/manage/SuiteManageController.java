@@ -1,6 +1,6 @@
 package com.dingtalk.isv.access.web.controller.suite.manage;
 
-import com.dingtalk.isv.access.api.model.suite.SuiteVO;
+import com.dingtalk.isv.access.api.model.SuiteVO;
 import com.dingtalk.isv.access.api.service.suite.SuiteManageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

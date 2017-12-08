@@ -1,6 +1,6 @@
 package com.dingtalk.isv.access.web.test.impl;
 
-import com.dingtalk.isv.access.api.model.corp.CorpTokenVO;
+import com.dingtalk.isv.access.api.model.CorpTokenVO;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 import com.dingtalk.isv.access.web.test.TestService;
 import org.apache.commons.lang.StringUtils;

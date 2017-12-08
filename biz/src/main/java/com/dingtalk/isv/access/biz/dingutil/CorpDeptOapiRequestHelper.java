@@ -3,10 +3,7 @@ package com.dingtalk.isv.access.biz.dingutil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.dingtalk.isv.access.api.model.corp.EmpVO;
-import com.dingtalk.isv.access.api.model.corp.LoginUserVO;
-import com.dingtalk.isv.access.api.model.corp.OALoginUserVO;
-import com.dingtalk.isv.access.api.model.suite.CorpSuiteCallBackVO;
+import com.dingtalk.isv.access.api.model.DepartmentVO;
 import com.dingtalk.isv.access.common.code.ServiceResultCode;
 import com.dingtalk.isv.access.common.log.format.LogFormatter;
 import com.dingtalk.isv.access.common.model.ServiceResult;
@@ -35,6 +32,7 @@ public class CorpDeptOapiRequestHelper {
     public void setOapiDomain(String oapiDomain) {
         this.oapiDomain = oapiDomain;
     }
+
 
     /**
      * 获取企业管理员

@@ -1,8 +1,8 @@
 package com.dingtalk.isv.access.api.service.suite;
 
-import com.dingtalk.isv.access.api.model.suite.SuiteTicketVO;
-import com.dingtalk.isv.access.api.model.suite.SuiteTokenVO;
-import com.dingtalk.isv.access.api.model.suite.SuiteVO;
+import com.dingtalk.isv.access.api.model.SuiteTicketVO;
+import com.dingtalk.isv.access.api.model.SuiteTokenVO;
+import com.dingtalk.isv.access.api.model.SuiteVO;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 
 /**

@@ -1,14 +1,8 @@
 package com.dingtalk.isv.access.biz.helper;
 
 import com.alibaba.fastjson.JSON;
-import com.dingtalk.isv.access.api.enums.suite.CorpCallBackTypeEnum;
-import com.dingtalk.isv.access.api.model.ISVSSOTokenVO;
-import com.dingtalk.isv.access.api.model.corp.CorpTokenVO;
-import com.dingtalk.isv.access.api.model.corp.EmpVO;
-import com.dingtalk.isv.access.api.model.corp.OALoginUserVO;
-import com.dingtalk.isv.access.api.model.suite.CorpSuiteCallBackVO;
-import com.dingtalk.isv.access.api.model.suite.SuiteVO;
-import com.dingtalk.isv.access.api.service.corp.CorpManageService;
+import com.dingtalk.isv.access.api.model.CorpTokenVO;
+import com.dingtalk.isv.access.api.service.CorpManageService;
 import com.dingtalk.isv.access.api.service.suite.SuiteManageService;
 import com.dingtalk.isv.access.biz.base.BaseTestCase;
 import com.dingtalk.isv.access.biz.dingutil.CorpChatOapiRequestHelper;
@@ -16,6 +10,8 @@ import com.dingtalk.isv.access.biz.dingutil.CorpDeptOapiRequestHelper;
 import com.dingtalk.isv.access.biz.dingutil.CorpOapiRequestHelper;
 import com.dingtalk.isv.access.biz.dingutil.ISVRequestHelper;
 import com.dingtalk.isv.access.common.model.ServiceResult;
+import com.dingtalk.open.client.api.model.corp.MessageBody;
+import com.dingtalk.open.client.api.model.corp.MessageType;
 import org.junit.Test;
 
 import javax.annotation.Resource;
@@ -44,12 +40,12 @@ public class CorpOapiRequestHelperTest extends BaseTestCase {
         String ssoCorpSecret = "WgqUzoTORc94jyEyZdM_RttJFdykSUlNPFEFJmix860a8LEv0o4IwtRYrROnBR_5";
         String corpSecret = "PFqsPcQ3uGNLWl2oEbm5AflaP2CRRK7OG5CXyEWEJ30RHeGkj4vHukilfnmgvCOV";
         String suiteKey = "suitexdhgv7mn5ufoi9ui";
+        /**
         CorpTokenVO corpTokenVO = corpManageService.getCorpToken(suiteKey,corpId).getResult();
         System.err.println("corpTokenVO::::"+ JSON.toJSONString(corpTokenVO));
         ISVSSOTokenVO isvSSOTokenVO =  isvRequestHelper.getSSOToken(corpId,ssoCorpSecret).getResult();
         System.err.println("isvSSOTokenVO::::"+ JSON.toJSONString(isvSSOTokenVO));
         System.err.println(isvSSOTokenVO.getExpiredTime());
-        /**
         ServiceResult<CorpSuiteCallBackVO> sr = corpOapiRequestHelper.getCorpSuiteCallback(suiteKey,corpId,corpTokenVO.getCorpToken());
         System.err.println(JSON.toJSONString(sr));
         SuiteVO suiteVO = suiteManageService.getSuiteByKey(suiteKey).getResult();
@@ -67,10 +63,26 @@ public class CorpOapiRequestHelperTest extends BaseTestCase {
         chatUserList.add("043425659249");
         chatUserList.add("06654942081038711");
         //ISV默认没有这个接口权限。只能用企业自己的TOKEN进行测试
-        ServiceResult<String> chatSr = corpChatOapiRequestHelper.createChat(suiteKey,corpId,isvCorpTokenVO.getCorpToken(),"群你妹","lifeng.zlf",chatUserList,1);
+        /**
+        ServiceResult<String> createChatSr = corpChatOapiRequestHelper.createChat(suiteKey,corpId,isvCorpTokenVO.getCorpToken(),"群你妹","lifeng.zlf",chatUserList,1);
+        System.err.println("createChatSr::::"+JSON.toJSONString(createChatSr));
+        ServiceResult<CorpChatVO> chatSr = corpChatOapiRequestHelper.getChat(suiteKey,corpId,isvCorpTokenVO.getCorpToken(),createChatSr.getResult());
         System.err.println("chatSr::::"+JSON.toJSONString(chatSr));
-
-        corpChatOapiRequestHelper.getChat(suiteKey,corpId,isvCorpTokenVO.getCorpToken(),chatSr.getResult());
+         **/
+        String chatId = "chat861bc18382f2cf4e782d22dbb9383c9a";
+        MessageBody.OABody message = new MessageBody.OABody();
+        MessageBody.OABody.Head head = new MessageBody.OABody.Head();
+        MessageBody.OABody.Body body = new MessageBody.OABody.Body();
+        head.setText("HEAD");
+        head.setBgcolor("ffffa328");
+        head.setText("客户详情");
+        body.setContent("标题 \r\n 换行");
+        body.setTitle("xxxxxxxx \r\n  换行");
+        message.setHead(head);
+        message.setBody(body);
+        message.setMessage_url("http://taobao.com");
+        ServiceResult<Void> sendSr = corpChatOapiRequestHelper.sendChatMsg(suiteKey,corpId,isvCorpTokenVO.getCorpToken(),chatId, MessageType.OA,message);
+        System.err.println("sendSr::::"+JSON.toJSONString(sendSr));
     }
 
 }
