@@ -1,6 +1,6 @@
 package com.dingtalk.isv.access.api.service;
 
-import com.dingtalk.isv.access.api.model.DepartmentVO;
+import com.dingtalk.isv.access.api.model.DingDepartmentVO;
 import com.dingtalk.isv.access.common.model.ServiceResult;
 
 /**
@@ -14,7 +14,7 @@ public interface DeptManageService {
      * @param suiteKey
      * @return
      */
-    ServiceResult<DepartmentVO> getDept(Long deptId, String corpId, String suiteKey);
+    ServiceResult<DingDepartmentVO> getDept(Long deptId, String corpId, String suiteKey);
 
     /**
      * 从钉钉拉取部门详情.存储到DB
@@ -22,6 +22,6 @@ public interface DeptManageService {
      * @param corpId    授权企业CorpId
      * @param deptId    部门ID
      */
-    ServiceResult<DepartmentVO> saveDept(String suiteKey,String corpId, Long deptId);
+    ServiceResult<DingDepartmentVO> saveDept(String suiteKey, String corpId, Long deptId);
 
 }

@@ -1,7 +1,7 @@
 package com.dingtalk.isv.access.biz.service;
 
 import com.dingtalk.isv.access.api.model.CorpTokenVO;
-import com.dingtalk.isv.access.api.model.DepartmentVO;
+import com.dingtalk.isv.access.api.model.DingDepartmentVO;
 import com.dingtalk.isv.access.api.service.CorpManageService;
 import com.dingtalk.isv.access.api.service.DeptManageService;
 
@@ -27,7 +27,7 @@ public class DeptManageServiceImpl implements DeptManageService {
     private CorpManageService corpManageService;
 
     @Override
-    public ServiceResult<DepartmentVO> getDept(Long deptId, String corpId, String suiteKey) {
+    public ServiceResult<DingDepartmentVO> getDept(Long deptId, String corpId, String suiteKey) {
         return null;
 //        bizLogger.info(LogFormatter.getKVLogData(LogFormatter.LogEvent.START,
 //                LogFormatter.KeyValue.getNew("deptId", deptId),
@@ -37,7 +37,7 @@ public class DeptManageServiceImpl implements DeptManageService {
 //        try {
 //            ServiceResult<CorpTokenVO> corpTokenSr = corpManageService.getCorpToken(suiteKey, corpId);
 //            DepartmentDetail departmentDetail = corpDepartmentService.getDeptDetail(corpTokenSr.getResult().getCorpToken(), deptId.toString());
-//            DepartmentVO departmentVO = DepartmentHelper.DepartmentDetail2DepartmentVO(departmentDetail);
+//            DingDepartmentVO departmentVO = DepartmentHelper.DepartmentDetail2DepartmentVO(departmentDetail);
 //            return ServiceResult.success(departmentVO);
 //        } catch (Exception e) {
 //            String errLog = LogFormatter.getKVLogData(LogFormatter.LogEvent.END,
@@ -53,7 +53,7 @@ public class DeptManageServiceImpl implements DeptManageService {
     }
 
     @Override
-    public ServiceResult<DepartmentVO> saveDept(String suiteKey, String corpId, Long deptId) {
+    public ServiceResult<DingDepartmentVO> saveDept(String suiteKey, String corpId, Long deptId) {
         bizLogger.info(LogFormatter.getKVLogData(LogFormatter.LogEvent.START,
                 LogFormatter.KeyValue.getNew("deptId", deptId),
                 LogFormatter.KeyValue.getNew("corpId", corpId),
@@ -62,7 +62,7 @@ public class DeptManageServiceImpl implements DeptManageService {
         try {
             ServiceResult<CorpTokenVO> corpTokenSr = corpManageService.getCorpToken(suiteKey, corpId);
             DepartmentDetail departmentDetail = corpDepartmentService.getDeptDetail(corpTokenSr.getResult().getCorpToken(), deptId.toString());
-            DepartmentVO departmentVO = DepartmentHelper.DepartmentDetail2DepartmentVO(departmentDetail);
+            DingDepartmentVO departmentVO = DepartmentHelper.DepartmentDetail2DepartmentVO(departmentDetail);
             return ServiceResult.success(departmentVO);
         } catch (Exception e) {
             String errLog = LogFormatter.getKVLogData(LogFormatter.LogEvent.END,
