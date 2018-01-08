@@ -27,5 +27,7 @@ public class ISVRequestHelperTest extends BaseTestCase {
         //code=de66252e02133fac8eb04f4a236f0e5c
         ServiceResult<OALoginUserVO> sr = corpOapiRequestHelper.getEmpBySSOCode(null,tokenSr.getResult().getIsvSsoToken(),"dbd854a89bbc398694f30232633be815");
         System.err.println(JSON.toJSONString(sr));
+
+
     }
 }

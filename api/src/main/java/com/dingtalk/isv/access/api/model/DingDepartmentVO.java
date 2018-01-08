@@ -27,7 +27,7 @@ public class DingDepartmentVO implements Serializable{
     private List<String> userPerimitList;
     //是否部门下的员工仅自己可见。
     private Boolean outerDept;
-    //含义未知 TODO TODO
+    //部门群是否包含下级部门的人员
     private Boolean groupContainSubDept;
     //本部门的员工仅可见员工自己为true时，可以配置额外可见人员，值为userid组成的的字符串，使用| 符号进行分割
     private List<String> outerPermitUserList;

@@ -28,6 +28,15 @@ public class CorpChatVO implements Serializable {
      * 群成员UserId列表
      */
     private List<String> userIdlist;
+    /**
+     * 外部联系人UserId列表
+     */
+    private List<String> extIdList;
+    /**
+     * 群类型 0:普通群   2:企业群
+     * 普通群可以加非企业人员,外部联系人可以加  企业群只能加企业员工,外部联系人不能加
+     */
+    private Long conversationTag;
 
     public String getCorpId() {
         return corpId;
@@ -69,14 +78,19 @@ public class CorpChatVO implements Serializable {
         this.userIdlist = userIdlist;
     }
 
-    @Override
-    public String toString() {
-        return "CorpChatVO{" +
-                "corpId='" + corpId + '\'' +
-                ", chatId='" + chatId + '\'' +
-                ", chatName='" + chatName + '\'' +
-                ", ownerUserId='" + ownerUserId + '\'' +
-                ", userIdlist=" + userIdlist +
-                '}';
+    public List<String> getExtIdList() {
+        return extIdList;
+    }
+
+    public void setExtIdList(List<String> extIdList) {
+        this.extIdList = extIdList;
+    }
+
+    public Long getConversationTag() {
+        return conversationTag;
+    }
+
+    public void setConversationTag(Long conversationTag) {
+        this.conversationTag = conversationTag;
     }
 }
