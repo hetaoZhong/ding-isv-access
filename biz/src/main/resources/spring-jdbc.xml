@@ -6,8 +6,8 @@
     <!---->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://xxxxxxxx:3306/ding_isv_access?useUnicode=true&amp;characterEncoding=utf8"/>
+        <property name="url" value="jdbc:mysql://139.196.215.81:3306/ding_isv_access?useUnicode=true&amp;characterEncoding=utf8"/>
         <property name="username" value="haochang" />
-        <property name="password" value="" />
+        <property name="password" value="haochang" />
     </bean>
 </beans>

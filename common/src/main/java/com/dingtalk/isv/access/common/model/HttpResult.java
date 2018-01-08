@@ -13,14 +13,14 @@ public class HttpResult {
      * @param errorCode
      * @return
      */
-    public Map<String, Object> getFailure(String errorCode, String msg) {
+    public static Map<String, Object> getFailure(String errorCode, String msg) {
         Map<String, Object> result = new HashMap<String, Object>(2);
         result.put("errcode", errorCode);
         result.put("errmsg", msg);
         return result;
     }
 
-    public Map<String, Object> getSuccess(Map<String, Object> data) {
+    public static Map<String, Object> getSuccess(Map<String, Object> data) {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("errcode","0");
         result.put("errmsg", "ok");
