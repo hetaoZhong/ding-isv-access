@@ -39,8 +39,8 @@ public class CorpOapiRequestHelperTest extends BaseTestCase {
     @Test
     public void test(){
         String corpId = "ding9f50b15bccd16741";
-        String ssoCorpSecret = "WgqUzoTORc94jyEyZdM_RttJFdykSUlNPFEFJmix860a8LEv0o4IwtRYrROnBR_5";
-        String corpSecret = "PFqsPcQ3uGNLWl2oEbm5AflaP2CRRK7OG5CXyEWEJ30RHeGkj4vHukilfnmgvCOV";
+        String ssoCorpSecret = "";
+        String corpSecret = "";
 
         //这一组账号创建外部联系人没权限
         //corpId = "dingb428d1170d66cd7035c2f4657eb6378f";

@@ -22,7 +22,7 @@ public class ISVRequestHelperTest extends BaseTestCase {
     @Test
     public void test_getSSOToken(){
         String corpId = "ding9f50b15bccd16741";
-        String corpSecret = "WgqUzoTORc94jyEyZdM_RttJFdykSUlNPFEFJmix860a8LEv0o4IwtRYrROnBR_5";
+        String corpSecret = "";
         ServiceResult<ISVSSOTokenVO> tokenSr =  isvRequestHelper.getSSOToken(corpId,corpSecret);
         //code=de66252e02133fac8eb04f4a236f0e5c
         ServiceResult<OALoginUserVO> sr = corpOapiRequestHelper.getEmpBySSOCode(null,tokenSr.getResult().getIsvSsoToken(),"dbd854a89bbc398694f30232633be815");

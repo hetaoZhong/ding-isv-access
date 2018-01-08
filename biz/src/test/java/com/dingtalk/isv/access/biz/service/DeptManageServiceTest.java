@@ -19,8 +19,8 @@ public class DeptManageServiceTest extends BaseTestCase{
     @Test
     public void test(){
         String corpId = "ding9f50b15bccd16741";
-        String ssoCorpSecret = "WgqUzoTORc94jyEyZdM_RttJFdykSUlNPFEFJmix860a8LEv0o4IwtRYrROnBR_5";
-        String corpSecret = "PFqsPcQ3uGNLWl2oEbm5AflaP2CRRK7OG5CXyEWEJ30RHeGkj4vHukilfnmgvCOV";
+        String ssoCorpSecret = "";
+        String corpSecret = "";
         String suiteKey = "suitexdhgv7mn5ufoi9ui";
         Long deptId = 1L;
         ServiceResult<DingDepartmentVO> saveSr = deptManageService.saveDept(suiteKey,corpId,deptId);
