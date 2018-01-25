@@ -244,8 +244,8 @@ public class CorpManageServiceImpl implements CorpManageService {
                 LogFormatter.KeyValue.getNew("suiteKey", suiteKey),
                 LogFormatter.KeyValue.getNew("corpId", corpId)
         ));
+        String jsTicketLockKey = "jsapi_ticlet_"+suiteKey+"_"+corpId;
         try {
-            String jsTicketLockKey = "jsapi_ticlet_"+suiteKey+"_"+corpId;
             CorpJSAPITicketDO corpJSTicketDO = corpJSAPITicketDao.getCorpJSAPITicket(suiteKey, corpId);
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
@@ -296,6 +296,8 @@ public class CorpManageServiceImpl implements CorpManageService {
             bizLogger.error(errLog, e);
             mainLogger.error(errLog, e);
             return ServiceResult.failure(ServiceResultCode.SYS_ERROR.getErrCode(), ServiceResultCode.SYS_ERROR.getErrMsg());
+        }finally {
+            isvBizLockService.removeISVBizLock(jsTicketLockKey);
         }
     }
 
